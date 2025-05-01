@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.trafficLogRoutes = void 0;
+const express_1 = require("express");
+const trafficLog_controller_1 = require("../controllers/trafficLog.controller");
+const router = (0, express_1.Router)();
+router.post('/', trafficLog_controller_1.TrafficLogController.createLog);
+router.get('/:id', trafficLog_controller_1.TrafficLogController.getLogById);
+router.get('/', trafficLog_controller_1.TrafficLogController.getAllLogs);
+exports.trafficLogRoutes = router;
