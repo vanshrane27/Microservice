@@ -11,6 +11,13 @@ export interface ITrafficLog extends Document {
   longitude?: number;
   organization?: string;
   isPrivateIP: boolean;
+  timezone?: string;
+  currency?: string;
+  language?: string;
+  security?: {
+    isProxy: boolean;
+    isCrawler: boolean;
+  };
   error?: {
     message: string;
     code?: string;
@@ -28,6 +35,13 @@ const TrafficLogSchema: Schema = new Schema({
   longitude: { type: Number },
   organization: { type: String },
   isPrivateIP: { type: Boolean, required: true },
+  timezone: { type: String },
+  currency: { type: String },
+  language: { type: String },
+  security: {
+    isProxy: { type: Boolean, default: false },
+    isCrawler: { type: Boolean, default: false }
+  },
   error: {
     message: { type: String },
     code: { type: String }
